@@ -1,0 +1,132 @@
+-- This file has been generated from package.yaml by hpack version 0.20.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 7335495ac76f23631fbceefe43e6bdb4e37c2fdea9ec3e248dc5786ef08ec37e
+
+name:           green-zone
+version:        1.0.0
+synopsis:       OpenAPS. Rethink.
+description:    OpenAPS. Rethink.
+category:       Medical
+homepage:       https://github.com/denisshevchenko/green-zone#readme
+bug-reports:    https://github.com/denisshevchenko/green-zone/issues
+maintainer:     Denis Shevchenko <me@dshevchenko.biz>
+license:        MIT
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+
+source-repository head
+  type: git
+  location: https://github.com/denisshevchenko/green-zone
+
+library
+  hs-source-dirs:
+      lib/src
+  ghc-options: -Wall -Werror -Wno-orphans -fprint-potential-instances -O0
+  build-depends:
+      aeson ==1.2.4.0
+    , async ==2.1.1.1
+    , base <5
+    , binary ==0.8.3.0
+    , bytestring ==0.10.8.1
+    , directory ==1.2.7.1
+    , filepath ==1.4.1.0
+    , pretty-terminal ==0.1.0.0
+    , safe-exceptions ==0.1.6.0
+    , shelly ==1.7.0.1
+    , stm ==2.4.5.0
+    , text ==1.2.2.2
+    , time ==1.6.0.1
+    , unix ==2.7.2.0
+    , yaml ==0.8.28
+  exposed-modules:
+      GreenZone.Cache.GetPut
+      GreenZone.Cache.Itself
+      GreenZone.Cache.Types
+      GreenZone.CLI
+      GreenZone.Command.Glucose
+      GreenZone.Configuration.Default
+      GreenZone.Configuration.File
+      GreenZone.Configuration.Types
+      GreenZone.Configuration.Validators
+      GreenZone.Driver.CGM.Medtronic
+      GreenZone.Driver.Pump.Medtronic
+      GreenZone.Exit
+      GreenZone.Interface.Network
+      GreenZone.Interface.Stick
+      GreenZone.Log
+      GreenZone.Log.Archivist
+      GreenZone.Loop.CGM
+      GreenZone.Loop.Cloud
+      GreenZone.Loop.Delay
+      GreenZone.Loop.Pump
+      GreenZone.Loop.SBCSupervisor
+      GreenZone.Loop.Types
+      GreenZone.Paths
+      GreenZone.Systemd.Scripts
+      GreenZone.Systemd.Service
+      GreenZone.Tool.IgnoreExceptions
+      GreenZone.Tool.Shell
+      GreenZone.Tool.Text
+  other-modules:
+      Paths_green_zone
+  default-language: Haskell2010
+
+executable green-zone
+  main-is: Main.hs
+  hs-source-dirs:
+      app/src
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wall -Werror -O0
+  build-depends:
+      async ==2.1.1.1
+    , base <5
+    , green-zone ==1.0.0
+    , safe-exceptions ==0.1.6.0
+  other-modules:
+      Paths_green_zone
+  default-language: Haskell2010
+
+executable green-zone-manager
+  main-is: Main.hs
+  hs-source-dirs:
+      manager/src
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wall -Werror -O0
+  build-depends:
+      base <5
+    , containers ==0.5.7.1
+    , green-zone ==1.0.0
+    , shelly ==1.7.0.1
+    , text ==1.2.2.2
+    , transformers ==0.5.2.0
+  other-modules:
+      GreenZone.Manager.Common.Boxes
+      GreenZone.Manager.Common.CLI
+      GreenZone.Manager.Common.DialogueTools
+      GreenZone.Manager.Common.Localization
+      GreenZone.Manager.Common.Localization.En
+      GreenZone.Manager.Common.Localization.Ru
+      GreenZone.Manager.Common.Paths
+      GreenZone.Manager.Common.Types
+      GreenZone.Manager.Delete.Dialogue
+      GreenZone.Manager.Init.Dialogue
+      GreenZone.Manager.Install.Dialogue
+      GreenZone.Manager.ReConfigure.Dialogue
+      Paths_green_zone
+  default-language: Haskell2010
+
+test-suite lib-tests
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  hs-source-dirs:
+      lib/test
+  build-depends:
+      QuickCheck ==2.10.1
+    , base <5
+    , green-zone ==1.0.0
+    , hspec ==2.4.4
+  other-modules:
+      CommonSpec
+      Paths_green_zone
+  default-language: Haskell2010

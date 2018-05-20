@@ -1,6 +1,8 @@
 # GreenZone
 
 [![CircleCI](https://circleci.com/gh/denisshevchenko/green-zone/tree/master.svg?style=shield)](https://circleci.com/gh/denisshevchenko/green-zone/tree/master)
+&nbsp;&nbsp;
+[![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/denisshevchenko/green-zone/blob/master/LICENSE)
 
 ## Goal
 

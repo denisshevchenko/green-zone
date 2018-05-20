@@ -1,0 +1,8 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/stretch-curl
+    steps:
+      - checkout
+      - run: ./ci/build-for-raspberry-pi-zero.sh
